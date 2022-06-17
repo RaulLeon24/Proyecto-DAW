@@ -7,39 +7,60 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Acme&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
   </head>
 <body>
-    <div class="contenedor1">
-      <div class="datos">
-        <img src="foto.jpeg",align="left" width=75 heightght=20 id="foto">Raul Arturo Leon Moran</img>
-          <div class="listas">
-            <ul>
-              <li> <span class="material-icons">mail</span> raulemoran@espol.edu.ec</li>
-              <li><span class="material-icons">call</span> +593 968342085</li>
-              <li><span class="material-icons">pin_drop</span> Guayaquil, Ecuador</li>
-              <li><span class="material-icons">mail</span> rauleon24_</li>
-              <li><span class="material-icons">mail</span> Raul Leon</li>
-              <li><span class="material-icons">mail</span> RaulLeon24</li>
-            </ul>
-          </div>
+<div class="main-container">
+  <div class="datos container-item" >
+    <div class="perfil">
+      <div class="foto perfil-items"><img src="foto.jpeg" id="foto"></img></div>
+      <div class="nombre perfil-items">  
+        <h1 id="nombre">Raul Leon Moran</h1>
+        <h3 id="cargo">Espol/Estudiante</h3>
       </div>
-      <div class="contenedorIdioma">
-
-
-      </div>
-      <div class="form">
-        <form>
-          <p>
-          <label for="email">Email: </label>
-            <input type="text" id="email"><br><br>
-          <label for="mensaje">Mensaje: </label><br><br>
-            <input type="submit" value="Enviar"> <input type="reset">
-          </p>
-        </form> 
-      </div>
+    </div>  
+    <div class="redes">
+      <ul>
+        <li> <span class="material-icons">mail</span> <span class="text">raulemoran@espol.edu.ec</span></li>
+        <li><span class="material-icons">call</span> +593 968342085</li>
+        <li><span class="material-icons">pin_drop</span> Guayaquil, Ecuador</li>
+        <li><span class="material-icons">mail</span> rauleon24_</li>
+        <li><span class="material-icons">mail</span> Raul Leon</li>
+        <li><span class="material-icons">mail</span> RaulLeon24</li>
+      </ul>
     </div>
-    <div class="contenedor2" >
-    
+    <div class="idiomas">
+
+      <ul>
+        <li><h3>Idiomas</h3></li>
+        <li><span class="idioma">Ingles</span><span class="material-symbols-outlined">
+          radio_button_checked</span><span class="material-symbols-outlined">
+            radio_button_checked</span><span class="material-symbols-outlined">
+              radio_button_checked</span><span class="material-symbols-outlined">
+                radio_button_checked</span><span class="material-symbols-outlined">
+                  radio_button_unchecked
+                  </span></li>
+        <li><span class="idioma">Frances</span><span class="material-symbols-outlined">
+          radio_button_checked</span><span class="material-symbols-outlined">
+            radio_button_checked</span><span class="material-symbols-outlined">
+              radio_button_checked</span><span class="material-symbols-outlined">
+                radio_button_unchecked
+                </span><span class="material-symbols-outlined">
+                  radio_button_unchecked
+                  </span></li>
+      </ul>
+    </div>
+    <div class="mapa margin">
+      <h2 class="titulo">Localizacion</h2>
+      <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d6742.4671933893305!2d-79.96109017127691!3d-2.148511920714306!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1ses-419!2sec!4v1655482300672!5m2!1ses-419!2sec" 
+      width="400" height="250" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>  
+    </div> 
+  </div>
+
+  <div class="text container-item">
+    <div class="dominios">
+      <h2 class="titulo margin">Habilidades</h2>
       <div class="tabla">
         <table border="1" align="center">
           <caption>Lenguajes de Programacion</caption>
@@ -60,7 +81,32 @@
               <td>✔️</td>
             </tr>
         </table>
-      </div>
+      </div>   
     </div>
+
+    <div class="video margin">
+      <h2 class="titulo">Que es lo que hago?</h2>
+      <iframe width="400" height="250" src="https://www.youtube.com/embed/rnmbxqS1nRo" 
+      title="La Vida de un PROGRAMADOR WEB (Cómo ser un Desarrollador Web, Con qué lenguaje empezar)" 
+      frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+    <div class="form margin">
+      <h2 class="titulo">Contactame</h2>
+      <form>
+        <p>
+        <label id="labelNombre" for="nombre">Nombre: </label>
+          <input type="text" id="nombre"><br><br>
+        <label id="labelEmail"for="email">Email: </label>
+          <input type="text" id="email"><br><br>
+        <textarea id="labelMensaje" for="mensaje">Mensaje: </textarea><br><br>
+          <input type="submit" value="Enviar"> <input type="reset">
+        </p>
+      </form> 
+    </div>
+
+
+  </div>
+</div>
+
 </body>
 </html>
