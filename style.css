@@ -35,8 +35,13 @@
     align-self: auto;
     background: rgba(196, 196, 196, 0.3);
     border-radius: 10px;
-    margin: 10px;
+    margin: 25px;
   }
+
+  .container-item:hover{
+    box-shadow: 10px 75px 75px -5px rgba(3, 56, 244, 0.71);
+  }
+
 
   .idiomas{
     margin-bottom: 0.5rem;
