@@ -93,31 +93,66 @@
      
 })(jQuery);
 
-let cargarDatos = () => {
+let cargarOpciones = () => {
+    fetch("https://ghibliapi.herokuapp.com/films")
+      .then(response => response.text())
+      .then(data => {
+      data= JSON.parse(data)
+      let directores=[]
+      for (film of data){
+        let director= film.director
+        if(!directores.includes(director)){
+            directores.push(director)
+            plantilla= `<option value= "${director}">${director}</option>` 
+            document.querySelector("select#tipo").innerHTML += plantilla
+        }
+           
+    }  
+    })
+      .catch(console.error);
+  }
+ 
+window.addEventListener('DOMContentLoaded', (event) => {
+   cargarOpciones()
+});
+
+
+let cargartabla = (directorSelected) => {
     fetch("https://ghibliapi.herokuapp.com/films")
       .then(response => response.text())
       .then(data => {
       data= JSON.parse(data)
       for (film of data){
-        let title= film.title
-        let score= film.rt_score
         let director= film.director
-        let running_time=film.running_time
-        let plantilla = 
-        `<tr>
-          <td>${title}</td>
-          <td>${director}</td>
-          <td>${running_time}</td>
-          <td>${score}</td>
-         </tr>`
-        document.querySelector(".table-responsive .table .datos").innerHTML += plantilla
+        let titulo = film.title
+        let duracion = film.running_time
+        let score = film.rt_score
+        let date = film.release_date
+        let tituloJapones = film.original_title_romanised
+
+        if (director == directorSelected){
+            let plantilla2 = 
+            `<tr>
+            <td>${titulo}</td>
+            <td>${tituloJapones}</td>
+            <td>${director}</td>
+            <td>${date}</td>
+            <td>${duracion}</td>
+            <td>${score}</td>
+            </tr>`
+            document.querySelector(".table-responsive .table .datos").innerHTML += plantilla2
+        }
     }  
-      })
-      
+    })
       .catch(console.error);
-  
   }
- 
-window.addEventListener('DOMContentLoaded', (event) => {
-   cargarDatos()
-});
+
+
+window.addEventListener('change', (event) => {
+    let selection = document.querySelector('select#tipo');
+    let directorSelected = selection.options[selection.selectedIndex].value;
+    document.querySelector(".table-responsive .table .datos").innerHTML = ""
+    cargartabla(directorSelected);
+
+})
+
