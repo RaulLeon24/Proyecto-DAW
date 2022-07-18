@@ -1,0 +1,13 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+  }
+  
+  #bar-example-12 {
+    height: 438px;
+    width: 600px;
+  }
+  

@@ -36,62 +36,115 @@
     Chart.defaults.borderColor = "#000000";
 
 
-    // Worldwide Sales Chart
-    var ctx1 = $("#worldwide-sales").get(0).getContext("2d");
-    var myChart1 = new Chart(ctx1, {
-        type: "bar",
-        data: {
-            labels: ["2016", "2017", "2018", "2019", "2020", "2021", "2022"],
-            datasets: [{
-                    label: "USA",
-                    data: [15, 30, 55, 65, 60, 80, 95],
-                    backgroundColor: "rgba(235, 22, 22, .7)"
-                },
-                {
-                    label: "UK",
-                    data: [8, 35, 40, 60, 70, 55, 75],
-                    backgroundColor: "rgba(235, 22, 22, .5)"
-                },
-                {
-                    label: "AU",
-                    data: [12, 25, 45, 55, 65, 70, 60],
-                    backgroundColor: "rgba(235, 22, 22, .3)"
-                }
-            ]
-            },
-        options: {
-            responsive: true
-        }
-    });
-
-
-    // Salse & Revenue Chart
-    var ctx2 = $("#salse-revenue").get(0).getContext("2d");
-    var myChart2 = new Chart(ctx2, {
-        type: "line",
-        data: {
-            labels: ["2016", "2017", "2018", "2019", "2020", "2021", "2022"],
-            datasets: [{
-                    label: "Salse",
-                    data: [15, 30, 55, 45, 70, 65, 85],
-                    backgroundColor: "rgba(235, 22, 22, .7)",
-                    fill: true
-                },
-                {
-                    label: "Revenue",
-                    data: [99, 135, 170, 130, 190, 180, 270],
-                    backgroundColor: "rgba(235, 22, 22, .5)",
-                    fill: true
-                }
-            ]
-            },
-        options: {
-            responsive: true
-        }
-    }); 
-
      
 })(jQuery);
+
+
+let cargarChart1 = () => {
+    fetch("https://ghibliapi.herokuapp.com/films")
+      .then(response => response.text() )  
+      .then(data =>{
+      data = JSON.parse(data)
+      labelDirectores = []
+      dicDirectores = {}
+      for(film of data){
+        let director = film.director
+        let score = film.rt_score
+
+        if(!dicDirectores.hasOwnProperty(director) ){
+            dicDirectores[director] = [];
+        }
+        dicDirectores[director].push(parseInt(score))
+       
+        
+        if(!labelDirectores.includes(director)){
+            labelDirectores.push(director)
+        }
+      }
+
+      values = []
+      for(dir in (dicDirectores)){
+        total = 0
+        dicDirectores[dir].forEach(function(a){total += a;});
+        values.push(total/dicDirectores[dir].length)
+        
+      }
+    
+      
+        var ctx1 = $("#director-films").get(0).getContext("2d");
+        var myChart1 = new Chart(ctx1, {
+            type: "bar",
+            data: {
+                labels: Object.values(labelDirectores),
+                datasets: [{
+                        label: "Score",
+                        data: values,
+                        backgroundColor: "rgba(235, 22, 22, .7)"
+                    }
+                ]
+                },
+            options: {
+                responsive: true
+            }
+        });
+
+      }
+    )}
+
+let cargarChart2 = () =>{
+    fetch("https://ghibliapi.herokuapp.com/films")
+      .then(response => response.text())
+      .then(data => {
+      data= JSON.parse(data)
+      laberYear = []
+      dicYear = {}
+      for(film of data){
+        let year = film.release_date
+        let score = film.rt_score
+
+        if(!dicYear.hasOwnProperty(year) ){
+            dicYear[year] = [];
+        }
+        dicYear[year].push(parseInt(score))
+       
+        
+        if(!laberYear.includes(year)){
+            laberYear.push(year)
+        }
+      }
+
+      values = {}
+      max = 0
+      
+      for(year in (dicYear)){
+        total = 0
+        dicYear[year].forEach(function(a){total += a;});
+        values[year]= (total/dicYear[year].length)
+        if(max < values[year]){
+            max = values[year]
+        }
+      }
+        
+      for(key in values){
+        console.log(key)
+        console.log(values[key])
+        porcentaje = values[key] / max
+        plantilla= `
+            <tr>
+                <th scope="row">${key}</th>
+                <td style="--size: ${porcentaje}"></td>
+            </tr>
+      
+      ` 
+      document.querySelector("#bar-example-12 .tdatos").innerHTML += plantilla
+      }
+
+
+    })
+      .catch(console.error);
+  }
+ 
+    
 
 let cargarOpciones = () => {
     fetch("https://ghibliapi.herokuapp.com/films")
@@ -112,12 +165,7 @@ let cargarOpciones = () => {
       .catch(console.error);
   }
  
-window.addEventListener('DOMContentLoaded', (event) => {
-   cargarOpciones()
-});
-
-
-let cargartabla = (directorSelected) => {
+let cargarTabla = (directorSelected) => {
     fetch("https://ghibliapi.herokuapp.com/films")
       .then(response => response.text())
       .then(data => {
@@ -152,7 +200,13 @@ window.addEventListener('change', (event) => {
     let selection = document.querySelector('select#tipo');
     let directorSelected = selection.options[selection.selectedIndex].value;
     document.querySelector(".table-responsive .table .datos").innerHTML = ""
-    cargartabla(directorSelected);
+    cargarTabla(directorSelected);
 
 })
 
+window.addEventListener('DOMContentLoaded', (event) => {
+    cargarOpciones()
+    cargarChart1()
+    cargarChart2()
+ });
+ 
