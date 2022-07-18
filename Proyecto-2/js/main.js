@@ -132,7 +132,7 @@ let cargarChart2 = () =>{
         plantilla= `
             <tr>
                 <th scope="row">${key}</th>
-                <td style="--size: ${porcentaje}"></td>
+                <td style="--size: ${porcentaje}"><button aria-label="${values[key]}" data-balloon-pos="right">&nbsp;</button></td>
             </tr>
       
       ` 
