@@ -1,0 +1,44 @@
+@import url('https://fonts.googleapis.com/css2?family=Jost:wght@600&display=swap');
+
+.container {
+	background: #1D1A3F;
+}
+
+.full {
+	min-height: 100vh;
+}
+
+.titulo {
+	font-family: 'Jost', sans-serif;
+  color: #9D12B4;
+  font-size: 40px;
+}
+
+.subtitulo {
+	font-family: 'Jost', sans-serif;
+  color: #9D12B4;
+  font-size: 20px;
+}
+
+.v-align {
+	padding: 30vh 0;
+}
+
+#imagen {
+  width: auto;
+  height: auto;
+  border: 2px solid #1F146B;
+  border-radius: 100%;
+}
+
+.entrar{
+  background: linear-gradient(112.54deg, rgba(164, 94, 252, 0.71) -78.23%, rgba(135, 38, 169, 0.68) 24.81%);
+  box-shadow: inset -3px -3px 4px rgba(130, 115, 223, 0.25), inset 2px 2px 7px rgba(54, 181, 236, 0.36);
+  border-radius: 21px;
+  width: 121px;
+  height: 44px;
+  color: #F608DF;
+  font-family: 'Jost', sans-serif;
+
+}
+

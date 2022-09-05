@@ -1,0 +1,66 @@
+{
+	"model": {
+		"type": "Object",
+		"value": {
+			"idJuego": {
+				"type": "incrementNumber",
+				"options": {
+					"from": 1
+				}
+			},
+            
+			"nombre": {
+				"type": "faker",
+				"value": "lorem.words"
+					},
+
+            "precio": {
+				"type": "randomNumberBetween",
+				"value": [10, 65]
+			},
+
+            "categoria": {
+				"type": "randomElementInArray",
+				"value": ["MultiPlayer", 
+						  "SinglePlayer",
+						  "Terror",
+						  "Accion",
+						  "Carreras"]
+			},
+
+			"url_imagenes": {
+				"type": "randomElementInArray",
+				"value": ["https://cdn.tutsplus.com/cdn-cgi/image/width=600/psd/uploads/legacy/psdtutsarticles/linkb_60vgamecovers/43.jpg", 
+						  "https://cdn.tutsplus.com/cdn-cgi/image/width=600/psd/uploads/legacy/psdtutsarticles/linkb_60vgamecovers/44.jpg",
+						  "https://cdn.tutsplus.com/cdn-cgi/image/width=600/psd/uploads/legacy/psdtutsarticles/linkb_60vgamecovers/41.jpg",
+						  "https://cdn.tutsplus.com/cdn-cgi/image/width=600/psd/uploads/legacy/psdtutsarticles/linkb_60vgamecovers/42.jpg",
+						  "https://cdn.tutsplus.com/cdn-cgi/image/width=600/psd/uploads/legacy/psdtutsarticles/linkb_60vgamecovers/38.jpg",
+						  "https://cdn.tutsplus.com/cdn-cgi/image/width=600/psd/uploads/legacy/psdtutsarticles/linkb_60vgamecovers/12.jpg",
+						  "https://areajugones.sport.es/wp-content/uploads/2020/09/immortals-fenyx-rising-3.jpg",
+						  "https://as01.epimg.net/meristation/imagenes/2015/06/03/noticia/1433346420_798969_1532451998_portada_normal.jpg",
+						  "https://sm.ign.com/ign_es/screenshot/default/free-shipping-custom-poster-nice-bedroom-decor-fas_9w8p.jpg",
+						  "https://i.3djuegos.com/juegos/16215/xbox_scarlett/fotos/maestras/xbox_scarlett-5207430.jpg",
+						  "https://www.esportmaniacos.com/wp-content/uploads/2021/10/sm64-min.jpg"
+						]
+			},
+
+			"description": {
+				"type": "faker",
+				"value": "lorem.paragraph"
+			},
+
+            "publicationDate": {
+				"type": "faker",
+				"value": "date.between",
+				"options": ["2017-01-02", "2020-12-29"]
+			  },
+			
+			  
+			"score":{
+				"type": "randomNumberBetween",
+				"value": [1,5]
+			}
+			
+		}
+	}
+}

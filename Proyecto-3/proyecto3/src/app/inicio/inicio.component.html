@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <body>
+    <div class="top">
+      <div class="titulo">
+        <h4>
+          <img routerLink="/inicio" id="imagen" src="assets/logo.jpg" />LR3
+          Games
+        </h4>
+        <button routerLink="/carrito" class="carrito" mat-flat-button>
+          Carrito
+        </button>
+      </div>
+    </div>
+    <div >
+      <select id="categoriaSelect" class="form-select"  (change)="changeType($event)">
+        <option value="">Todos los Juegos</option>
+        <option *ngFor="let categoria of categorias" value="{{categoria}}">{{categoria}}</option>
+      </select>
+    </div>
+    <!-- Products Start -->
+    <div class="container-fluid about py-5" *ngFor="let juego of juegos">
+      <div class="container">
+        <div class="d-flex h-100">
+          <div class="flex-shrink-0">
+            <img
+              class="img-fluid" src="{{ juego.url_imagenes }}" alt=""routerLink="/juego/{{ juego.idJuego }}"/>
+          </div>
+          <div class="container-datos text-start bg-secondary border-inner px-4" routerLink="/juego/{{ juego.idJuego }}">
+            <h3 class="text-uppercase">{{ juego.nombre }}</h3>
+            <span>Categoria: {{ juego.categoria }}</span><br />
+            <span>Valoracion:</span>
+            <div class="valoracion">
+              <mat-icon *ngFor="let item of [].constructor(juego.score); let i = index">star</mat-icon>
+              <mat-icon *ngFor="let item of [].constructor(5-juego.score); let i = index">star_border</mat-icon>
+            </div>
+            <span>$ {{ juego.precio }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Products End -->
+  </body>
+</html>

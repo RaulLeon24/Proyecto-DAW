@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<body>
+
+    <div class="top">
+      <div class="titulo">
+        <button routerLink="/inicio" class="header" mat-flat-button><h4><img href="/inicio" id= imagen src="assets/logo.jpg">LR3 Games</h4></button>
+        <button routerLink="/carrito" class="menu-carrito" mat-flat-button>Carrito</button>
+      </div>
+
+    </div>
+
+    <div class="contenido">
+      <div class="datos">
+        <div class="flex-shrink-0">
+          <img class="img-fluid" src="{{juego.url_imagenes}}" alt="">
+      </div>
+      <div class="container-datos text-start bg-secondary border-inner px-4">
+          <h3 class="text-uppercase">{{juego.nombre}}</h3>
+          <span>Categoria: {{juego.categoria}}</span><br/>
+          <span>Valoracion</span>
+          <div class="valoracion">
+            <mat-icon *ngFor="let item of [].constructor(juego.score); let i = index">star</mat-icon>
+            <mat-icon *ngFor="let item of [].constructor(5-juego.score); let i = index">star_border</mat-icon><br>
+            <span>Descripcion:</span><br>
+            <span>{{juego.description}}</span><br>
+            <span>Precio: $ {{juego.precio}}</span><br>
+            <button (click)="save()"  class= "carrito" mat-flat-button color="primary">AÑADIR A CARRITO</button>
+          </div>
+
+      </div>
+      </div>
+
+
+    </div>
+
+</body>

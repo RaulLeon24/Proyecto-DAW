@@ -1,0 +1,180 @@
+@import url('https://fonts.googleapis.com/css2?family=Jost:wght@600&display=swap');
+h1,
+h2,
+.font-weight-bold {
+  font-weight: 700 !important;
+}
+
+h3,
+h4,
+.font-weight-semi-bold {
+  font-weight: 600 !important;
+}
+
+h5,
+h6,
+.font-weight-medium {
+  font-weight: 500 !important;
+}
+
+.btn {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 600;
+  transition: .5s;
+}
+
+.btn-primary {
+  color: #FFFFFF;
+}
+
+.border-inner {
+  position: relative;
+}
+
+.border-inner * {
+  position: relative;
+  z-index: 1;
+}
+
+.border-inner::before {
+  position: absolute;
+  content: "";
+  top: 10px;
+  right: 10px;
+  bottom: 10px;
+  left: 10px;
+  background: none;
+  border: 1px solid var(--light);
+  z-index: 0;
+}
+
+.btn-square {
+  width: 40px;
+  height: 40px;
+}
+
+.btn-sm-square {
+  width: 30px;
+  height: 30px;
+}
+
+.btn-lg-square {
+  width: 50px;
+  height: 50px;
+}
+
+.btn-square,
+.btn-sm-square,
+.btn-lg-square {
+  padding-left: 0;
+  padding-right: 0;
+  text-align: center;
+}
+
+
+@media (max-width: 991.98px) {
+  .navbar-dark .navbar-nav .nav-link  {
+      padding: 10px 0;
+  }
+}
+
+@keyframes pulse-border {
+  0% {
+      transform: translateX(-50%) translateY(-50%) translateZ(0) scale(1);
+      opacity: 1;
+  }
+
+  100% {
+      transform: translateX(-50%) translateY(-50%) translateZ(0) scale(2);
+      opacity: 0;
+  }
+}
+
+.img-fluid{
+  width: 150px;
+  height: 150;
+}
+
+#imagen{
+  border-radius: 100%;
+  max-width: 30% ;
+  margin-right: 10px;
+}
+
+.container-fluid{
+  background: #1D1A3F;
+}
+
+.container-datos{
+  padding: 20px;
+  background: linear-gradient(112.54deg, rgba(28, 5, 95, 0.71) -0.96%, rgba(101, 13, 97, 0.68) 102.08%);
+  box-shadow: inset -3px -3px 4px rgba(130, 115, 223, 0.25), inset 2px 2px 7px rgba(54, 181, 236, 0.36);
+  color: #FDE3BC;
+  font-family: 'Jost', sans-serif;
+  font-size: 12px;
+}
+
+.carrito, .header{
+  font-family: 'Jost', sans-serif;
+  color: #9D12B4;
+  background-color: #1D1A3F;
+}
+
+.titulo{
+  font-family: 'Jost', sans-serif;
+  color: #9D12B4;
+}
+
+.navbar{
+  background: #1D1A3F;
+}
+
+.btn{
+  text-align: right;
+  background: #1D1A3F;
+  text-align: right ;
+}
+
+.top h4{
+  display: inline;
+
+}
+
+.top .carrito{
+  float: right;
+}
+
+.top .header{
+  float: left;
+  width: 50%;
+}
+
+.titulo{
+  padding: 20px;
+  background: #1D1A3F;
+}
+
+.info-pagos{
+  background-color: #1D1A3F;
+  color:  #9D12B4;
+  margin: 20px;
+  font-size: 20px;
+  font-family: 'Jost', sans-serif;
+}
+
+.pagar{
+  background: linear-gradient(112.54deg, rgba(164, 94, 252, 0.71) -78.23%, rgba(135, 38, 169, 0.68) 24.81%);
+  box-shadow: inset -3px -3px 4px rgba(130, 115, 223, 0.25), inset 2px 2px 7px rgba(54, 181, 236, 0.36);
+  border-radius: 21px;
+  width: 121px;
+  height: 44px;
+  color: #F608DF;
+  font-family: 'Jost', sans-serif;
+  font-size: 20px;
+
+}
+
+body{
+  background: #1D1A3F;
+  height: 100vh;
+}
